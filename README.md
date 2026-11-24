@@ -1,69 +1,107 @@
-
 # OSINT Investigation Toolkit
 
-![OSINT Banner](images/osint-banner.png)
-
-### GATHER | ANALYZE | INVESTIGATE
-
-Python-based Open Source Intelligence toolkit for
-authorized cybersecurity research.
+A beginner-friendly Python desktop application for lawful Open Source Intelligence (OSINT) learning and authorized research. It performs limited lookups using publicly available DNS, RDAP, HTTP response, reverse-DNS, and IP-registration information.
 
 ## Features
-- Domain & IP Lookup
-- DNS Analysis
-- WHOIS Lookup
-- Email Analysis
-- Social Media OSINT
-- Metadata Extraction
-- Investigation Reports
 
-## Developer
-Jatin Kumar
-Technology Stack
+- Domain and URL analysis
+- Public DNS records (A, AAAA, MX, NS, TXT, CNAME)
+- Domain RDAP information
+- Website HTTP response metadata
+- Public IP classification and reverse DNS
+- Approximate public IP geolocation / ISP information
+- Email syntax and public MX-record checks
+- JSON and TXT report export
+- Tkinter desktop GUI
 
-Python 3
+## Requirements
 
-Kali Linux
+- Kali Linux, Debian, Ubuntu, or Windows
+- Python 3.10+
+- Internet connection for online lookups
+- Tkinter (usually included with system Python)
 
-Requests
+## Install on Kali Linux
 
-BeautifulSoup
-
-DNSPython
-
-WHOIS
-
-Git
-
-Installation (Kali Linux)
-
+```bash
 sudo apt update
-sudo apt install -y python3 python3-venv python3-pip git whois dnsutils
+sudo apt install -y python3 python3-venv python3-pip python3-tk git unzip
+```
 
-Setup
+Extract the ZIP, then enter the project directory:
 
-git clone https://github.com/cyber370/osint-investigation-toolkit.git
-cd osint-investigation-toolkit
+```bash
+cd ~/Downloads
+unzip osint_investigation_toolkit.zip
+cd osint_investigation_toolkit
+```
 
+Create and activate a virtual environment:
+
+```bash
 python3 -m venv .venv
 source .venv/bin/activate
+```
 
+Install dependencies:
+
+```bash
+python -m pip install --upgrade pip
 pip install -r requirements.txt
+```
 
-Run
+Start the application:
 
-python3 main.py
+```bash
+python main.py
+```
 
-Developer
+## Windows setup
 
-Jatin Kumar
+```powershell
+py -m venv .venv
+.venv\Scripts\Activate.ps1
+python -m pip install --upgrade pip
+pip install -r requirements.txt
+python main.py
+```
 
-GitHub: https://github.com/cyber370
+## Example targets
 
-Disclaimer
+- Domain: `example.com`
+- Public IP: `8.8.8.8`
+- Email format/domain check: `name@example.com`
 
-For educational purposes, authorized security research, and analysis of publicly available information. Respect privacy, applicable laws, and website terms of service.
+## Project structure
 
+```text
+osint_investigation_toolkit/
+├── main.py
+├── requirements.txt
+├── README.md
+├── LICENSE
+├── .gitignore
+├── osint_toolkit/
+│   ├── __init__.py
+│   ├── analyzer.py
+│   └── gui.py
+├── logs/
+└── reports/
+```
 
-GitHub: https://github.com<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/1450c4a5-2d31-49d1-91fc-22eadd00343a" />
-/cyber370
+## GitHub
+
+Suggested repository name: `osint-investigation-toolkit`
+
+```bash
+git init
+git add .
+git commit -m "Initial OSINT Investigation Toolkit"
+git branch -M main
+git remote add origin https://github.com/cyber370/osint-investigation-toolkit.git
+git push -u origin main
+```
+
+## Privacy and safety
+
+This tool is designed for public-source research and education. It does not access private accounts, verify mailbox ownership, scrape private data, exploit systems, or perform password attacks. IP geolocation is approximate and may show an ISP or hosting provider rather than an individual's location. Use only against targets and data you are authorized to investigate, and follow applicable laws and service terms.
